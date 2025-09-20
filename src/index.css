@@ -8,35 +8,52 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Encrypted Supply Chain Finance Theme */
+    --background: 220 30% 5%;
+    --foreground: 210 40% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 220 25% 8%;
+    --card-foreground: 210 40% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 220 25% 8%;
+    --popover-foreground: 210 40% 98%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 195 100% 50%;
+    --primary-foreground: 220 30% 5%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 220 20% 15%;
+    --secondary-foreground: 210 40% 98%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 220 20% 12%;
+    --muted-foreground: 215 20% 65%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 180 100% 50%;
+    --accent-foreground: 220 30% 5%;
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 220 20% 15%;
+    --input: 220 20% 15%;
+    --ring: 195 100% 50%;
 
-    --radius: 0.5rem;
+    /* Custom design tokens */
+    --blockchain-blue: 220 80% 15%;
+    --encrypt-glow: 195 100% 50%;
+    --supply-chain: 160 60% 45%;
+    --finance-gold: 45 90% 60%;
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(220 30% 5%), hsl(220 80% 15%));
+    --gradient-card: linear-gradient(145deg, hsl(220 25% 8%), hsl(220 20% 12%));
+    --gradient-glow: linear-gradient(90deg, hsl(195 100% 50% / 0.1), hsl(180 100% 50% / 0.1));
+    
+    /* Shadows */
+    --shadow-glow: 0 0 30px hsl(195 100% 50% / 0.3);
+    --shadow-encrypt: 0 0 20px hsl(180 100% 50% / 0.4);
+    --shadow-card: 0 8px 32px hsl(220 30% 5% / 0.4);
+
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -101,5 +118,69 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  /* Animations */
+  .animate-truck {
+    animation: truck-move 8s linear infinite;
+  }
+  
+  .animate-conveyor {
+    animation: conveyor-flow 10s linear infinite;
+  }
+  
+  .animate-glow {
+    animation: glow-pulse 2s ease-in-out infinite alternate;
+  }
+  
+  .animate-encrypt {
+    animation: encrypt-flow 3s ease-in-out infinite;
+  }
+
+  /* Glow effects */
+  .glow-primary {
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .glow-encrypt {
+    box-shadow: var(--shadow-encrypt);
+  }
+
+  /* Gradient backgrounds */
+  .bg-gradient-hero {
+    background: var(--gradient-hero);
+  }
+  
+  .bg-gradient-card {
+    background: var(--gradient-card);
+  }
+  
+  .bg-gradient-glow {
+    background: var(--gradient-glow);
+  }
+}
+
+@layer utilities {
+  @keyframes truck-move {
+    0% { transform: translateX(-100px); }
+    100% { transform: translateX(calc(100vw + 100px)); }
+  }
+  
+  @keyframes conveyor-flow {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+  
+  @keyframes glow-pulse {
+    0% { box-shadow: 0 0 20px hsl(195 100% 50% / 0.3); }
+    100% { box-shadow: 0 0 40px hsl(195 100% 50% / 0.6); }
+  }
+  
+  @keyframes encrypt-flow {
+    0% { opacity: 0.4; transform: translateY(0px); }
+    50% { opacity: 1; transform: translateY(-5px); }
+    100% { opacity: 0.4; transform: translateY(0px); }
   }
 }

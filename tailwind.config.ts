@@ -57,6 +57,19 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        // Custom supply chain colors
+        blockchain: {
+          blue: "hsl(var(--blockchain-blue))",
+        },
+        encrypt: {
+          glow: "hsl(var(--encrypt-glow))",
+        },
+        supply: {
+          chain: "hsl(var(--supply-chain))",
+        },
+        finance: {
+          gold: "hsl(var(--finance-gold))",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
